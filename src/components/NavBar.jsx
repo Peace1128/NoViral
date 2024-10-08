@@ -2,14 +2,12 @@ import React, { useState } from "react";
 import "./NavBar.css";
 
 function Navbar() {
-  // 테스트할 때는 로그인 상태를 임시로 true로 설정
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMyInfoOpen, setIsMyInfoOpen] = useState(false);
 
-  // 내가 등록한 의견 개수 (임시로 1개로 설정) 추후 api로 변경
-  const [userCommentsCount, setUserCommentsCount] = useState(1);
+  const [userCommentsCount, setUserCommentsCount] = useState(311);
 
   const handleMouseEnter = () => {
     setIsDropdownOpen(true);
@@ -33,17 +31,15 @@ function Navbar() {
     }
   };
 
-  // 로그아웃 처리
   const handleLogout = () => {
-    setIsLoggedIn(false); // 로그아웃 후 네비바가 변경됨
-    // 현재 페이지는 유지되고 네비게이션 바만 업데이트
+    setIsLoggedIn(false);
   };
 
   return (
     <nav className="navbar">
       <div className="nav-content">
         <div className="logo">
-          <a href="/">Noviral</a>
+          <a href="/">NOVIRAL</a>
         </div>
         <ul className="nav-links">
           {/* PRODUCT 드롭다운 */}
@@ -53,18 +49,18 @@ function Navbar() {
             onMouseLeave={handleMouseLeave}
           >
             <a href="#" className="nav-link">
-              PRODUCT
+              Product
             </a>
             {isDropdownOpen && (
               <ul className="dropdown-menu">
                 <li className="dropdown-item">
-                  <a href="/category1">상품목록1</a>
+                  <a href="/category1">Keyboard</a>
                 </li>
                 <li className="dropdown-item">
-                  <a href="/category2">상품목록2</a>
+                  <a href="/category2">Mouse</a>
                 </li>
                 <li className="dropdown-item">
-                  <a href="/category3">상품목록3</a>
+                  <a href="/category3">Sounds</a>
                 </li>
               </ul>
             )}
@@ -74,7 +70,7 @@ function Navbar() {
           {!isLoggedIn ? (
             <li className="nav-item">
               <a href="/login" className="nav-link">
-                LOGIN
+                Login
               </a>
             </li>
           ) : (
@@ -84,23 +80,23 @@ function Navbar() {
               onMouseLeave={handleMyInfoLeave}
             >
               <a href="#" className="nav-link">
-                MYINFO
+                MyInfo
               </a>
               {isMyInfoOpen && (
                 <ul className="myinfo-menu">
-                  {/* 내가 등록한 의견 표시 */}
                   <li className="myinfo-item">
                     <a href="/my-comments">
-                      내가 등록한 의견: {userCommentsCount}개
+                      My opinion{" "}
+                      <span className="comment-count">{userCommentsCount}</span>
                     </a>
                   </li>
                   <li className="myinfo-item">
-                    <a href="/change-password">비밀번호 변경</a>
-                  </li>
-                  <li className="myinfo-item">
-                    <a href="#" onClick={handleDeleteAccount}>
-                      회원탈퇴
-                    </a>
+                    <div className="inline-options">
+                      <a href="/change-password">비밀번호 변경</a>
+                      <a href="#" onClick={handleDeleteAccount}>
+                        회원탈퇴
+                      </a>
+                    </div>
                   </li>
                   <li className="myinfo-item">
                     <a href="#" onClick={handleLogout}>
