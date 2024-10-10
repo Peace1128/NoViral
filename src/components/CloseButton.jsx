@@ -1,4 +1,3 @@
-// CloseButton.jsx
 import React from "react";
 import "./CloseButton.css";
 
@@ -11,9 +10,24 @@ function CloseButton({ onClick, style }) {
         width="24"
         height="24"
         className="close-icon"
+        fill="currentColor" // SVG 색상을 버튼의 색상으로 설정
       >
-        <line x1="4" y1="4" x2="20" y2="20" stroke="black" strokeWidth="2" />
-        <line x1="20" y1="4" x2="4" y2="20" stroke="black" strokeWidth="2" />
+        <line
+          x1="4"
+          y1="4"
+          x2="20"
+          y2="20"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+        <line
+          x1="20"
+          y1="4"
+          x2="4"
+          y2="20"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
       </svg>
     </button>
   );
