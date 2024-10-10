@@ -144,18 +144,4 @@
   .navbar {
     padding: 0 32px;
   }
-
-  .logo a {
-    font-size: 20px;
-  }
-
-  .nav-link {
-    font-size: 16px;
-  }
-
-  .dropdown-item a,
-  .myinfo-item a,
-  .myinfo-item:first-child a {
-    font-size: 14px;
-  }
 }
