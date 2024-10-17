@@ -1,0 +1,12 @@
+.footer-placeholder {
+  width: 100%;
+  text-align: center;
+  padding: 20px 0;
+  background-color: #13161b;
+  color: #fff;
+  font-size: 12px;
+  position: fixed; /* 화면 하단에 고정 */
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+}
