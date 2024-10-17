@@ -1,12 +1,17 @@
-.footer-placeholder {
-  width: 100%;
+/* MainPage.css 또는 global styles */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+/* Footer의 스타일을 추가 */
+footer {
+  background-color: #13161b; /* 원하는 색상으로 설정 */
+  padding: 20px;
   text-align: center;
-  padding: 20px 0;
-  background-color: #13161b;
-  color: #fff;
-  font-size: 12px;
-  position: fixed; /* 화면 하단에 고정 */
-  bottom: 0;
-  left: 0;
-  z-index: 1000;
 }
