@@ -1,4 +1,12 @@
 import React from 'react';
+/** 계단형 테두리 컴포넌트
+ * ProductOverview의 내부 장식. 기능은 없음.
+ * CSS in JS로 통합: 스타일을 포함해도 크지 않으므로 단일 코드로 관리.
+ * section.product-info(위)와 section.popular-opinions(아래)의
+ * 오른쪽 코너(우하단, 우상단)를 동시에 꾸밈.
+ * 한 step당 24px
+ * 16px 요소 추가: 두 section의 gap인 40px을 표현하기 위해 필요.
+ */
 
 const SteppedCorner = () => {
   const cellStyle = {

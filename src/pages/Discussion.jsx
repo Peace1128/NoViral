@@ -3,6 +3,11 @@ import { useParams, useNavigate } from "react-router-dom";
 import UseProductData from "../hooks/UseProductData";
 import { Button, Modal, ProductOverview } from "../components";
 
+/**
+ * Discussion component displays a product discussion section with opinions.
+ * Retrieves product data and provides options to navigate to product details
+ * and post new opinions or reports via modal.
+ */
 function Discussion() {
   const { id } = useParams();
   const product = UseProductData(id);
@@ -10,16 +15,26 @@ function Discussion() {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalType, setModalType] = useState("");
 
+  /**
+   * Opens the modal with a specified type.
+   * @param {string} type - Type of modal to open (e.g., "newOpinion" or "report").
+   */
   const openModal = (type) => {
     setModalType(type);
     setModalOpen(true);
   };
 
+  /**
+   * Closes the modal and resets modal type.
+   */
   const closeModal = () => {
     setModalOpen(false);
     setModalType("");
   };
 
+  /**
+   * Navigates to the product details page.
+   */
   const goToDetails = () => {
     navigate(`/details/${id}`);
   };

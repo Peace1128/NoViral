@@ -2,6 +2,14 @@ import React from 'react';
 import { Button, SteppedCorner } from './';
 import '../css/productDetails.css';
 
+/**
+ * ProductOverview component displays detailed information about a product.
+ * Props:
+ *  - product (object): Product data including name, dimensions, weight, color, and opinions.
+ *  - id (string): Product identifier.
+ *  - buttonText (string): Text displayed on the button.
+ *  - buttonAction (function): Action triggered when the button is clicked.
+ */
 const ProductOverview = ({ product, id, buttonText, buttonAction }) => {
   if (!product) return <p>Loading...</p>;
 

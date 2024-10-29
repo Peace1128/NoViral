@@ -2,6 +2,13 @@ import React, { useEffect, useRef, useState } from "react";
 import { Button, CloseButton } from "./";
 import useAlert from "../hooks/UseAlert";
 
+/**
+ * Modal component renders a dialog box based on `type`.
+ * Props:
+ *  - isOpen (boolean): Indicates if modal is open.
+ *  - onClose (function): Function to close modal.
+ *  - type (string): Type of modal, determining content ("newOpinion" or "report").
+ */
 function Modal({ isOpen, onClose, type }) {
   const dialogRef = useRef(null);
   const [opinionText, setOpinionText] = useState(""); // 의견 텍스트 상태
@@ -18,11 +25,18 @@ function Modal({ isOpen, onClose, type }) {
     }
   }, [isOpen]);
 
+  /**
+   * Closes the modal and triggers onClose function.
+   */
   const handleClose = () => {
     dialogRef.current.close(); // 명시적으로 모달을 닫음
     onClose(); // 부모로부터 전달받은 onClose 실행
   };
 
+  /**
+   * Renders header with a title and close button.
+   * @param {string} title - Title for the header.
+   */
   // 모달의 헤더 부분을 공통 함수로 분리
   const renderHeader = (title) => (
     <div className="dialog-header">
@@ -31,16 +45,15 @@ function Modal({ isOpen, onClose, type }) {
     </div>
   );
 
-  // 의견 텍스트 상태 업데이트
-  const handleOpinionChange = (e) => {
-    setOpinionText(e.target.value);
-  };
+  // Text area content handlers
+  const handleOpinionChange = (e) => setOpinionText(e.target.value);
+  const handleReportChange = (e) => setReportText(e.target.value);
 
-  // 신고 텍스트 상태 업데이트
-  const handleReportChange = (e) => {
-    setReportText(e.target.value);
-  };
-
+  /**
+   * Renders modal content based on type.
+   *  - newOpinion: Form for submitting a new opinion.
+   *  - report: Form for reporting a user's opinion.
+   */
   const renderContent = () => {
     if (type === "newOpinion") {
       return (
